@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 import os
 from predict_model.predict_from_time import predict
+from defect_model.predict import detect
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -71,7 +72,7 @@ def information():
         'VDR': calculate_vdr(INIT_U, Utot[1], 30),
         'RUL': calculate_rul(Utot, 3.3),
         'STT': calculate_stt(calculate_soh(Utot[1], INIT_U)),
-        'isBreak': False,
+        'isBreak': detect(time),
         'time': time + 30,
         'data': d[1]
     }
