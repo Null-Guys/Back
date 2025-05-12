@@ -74,6 +74,7 @@ def information():
         'STT': calculate_stt(calculate_soh(Utot[1], INIT_U)),
         'isBreak': detect(time),
         'time': time + 30,
+        'utot': Utot,
         'data': d[1]
     }
 
